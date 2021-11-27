@@ -1,0 +1,68 @@
+﻿@model IEnumerable<tpkp3k5.Models.Event>
+
+@{
+    ViewBag.Title = "ListEvents";
+}
+
+<h2>ListEvents</h2>
+
+<p>
+    @Html.ActionLink("Create event", "Create")
+</p>
+<p>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamTwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrawK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamOneK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamTwoK)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamTwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrawK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOneK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamTwoK)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Make bet", "Create", "Bet", new { eventID = item.ID }, new { }) |
+                @Html.ActionLink("Fulfill bets", "Fulfill", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
